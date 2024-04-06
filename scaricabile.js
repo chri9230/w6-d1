@@ -165,6 +165,7 @@ function resetJobs() {
 
 
 function addJobs() {
+  resetJobs()
   let jobTitle = document.getElementById('job').value
   let jobLocation = document.getElementById('location').value
   lavoriTrovati = find(jobTitle, jobLocation)
@@ -182,33 +183,20 @@ function addJobs() {
     contenitore.appendChild(nessunRisultato)
     return
   } 
-  if (lavoriTrovati.count.includes(contenitoreCount))
-  return
+  
   contenitore.innerHTML = ''
   
-
-
   for (let lavoro of lavoriTrovati.results) {
 
     const nuovaLista = document.createElement('li')
     nuovaLista.innerText = lavoro.title + " - " + lavoro.location
     contenitore.appendChild(nuovaLista)
 
-
   }
+  
   let contenitoreCount = document.createElement('p')
+  let contenitoreRisultati = document.getElementById('risultati')
   contenitoreCount.innerHTML = lavoriTrovati.count
-  const selezionaDivRisultati = document.getElementById('risultati')
-  selezionaDivRisultati.appendChild(contenitoreCount)
+  contenitoreRisultati.appendChild(contenitoreCount)
   
 }
-
-
-
-/*   const counterReset = document.querySelector('input[value="Ricerca"]')
-  counterReset.addEventListener('click', remove)
-
-function remove() {
-  const removeCount = document.getElementsByTagName('p')
-  removeCount.firstElementChild.removeChild(contenitoreCount)
-} */
