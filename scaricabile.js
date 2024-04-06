@@ -163,9 +163,6 @@ function resetJobs() {
     count.remove()
     //count.classList.remove("slide-out-top")
   }
-
-
-
 }
 
 //creo una funzione che mi crea div e ul necessari ogni volta che trova i valori immessi dall'utente
@@ -173,6 +170,7 @@ function resetJobs() {
 
 function addJobs() {
   resetJobs()
+
   let jobTitle = document.getElementById('job').value
   let jobLocation = document.getElementById('location').value
   lavoriTrovati = find(jobTitle, jobLocation)
@@ -201,14 +199,19 @@ function addJobs() {
 
     //classList added
     nuovaLista.classList.add("slide-in-elliptic-top-fwd")
+
   }
   
+
   let contenitoreCount = document.createElement('p')
   let contenitoreRisultati = document.getElementById('risultatiCounter')
   contenitoreCount.innerHTML = "Per la tua ricerca abbiamo individuato " + lavoriTrovati.count + " risultati !"
   contenitoreRisultati.appendChild(contenitoreCount)
   
   contenitoreCount.classList.add("slide-in-elliptic-bottom-fwd")
+  
+  
+  
 }
 
 
