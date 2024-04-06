@@ -144,46 +144,71 @@ function find(title, location) {
 
 //devo impostare un add event listener che al click dell'utente sul bottone submit, vada ad azionare la nuova funzione trovaLavori 
 
-const selezionaPulsante = document.querySelector('input[type="button"]')
-const azionaPulsante = selezionaPulsante.addEventListener("click", addJobs)
+const selezionaRicerca = document.getElementById('ricerca')
+const azionaRicerca = selezionaRicerca.addEventListener("click", addJobs)
+
+const selezionaReset = document.getElementById('reset')
+const azionaReset = selezionaReset.addEventListener("click", resetJobs)
+
+function resetJobs() {
+  let removeResults = document.querySelectorAll('li')
+  for (let result of removeResults) {
+    result.remove()
+  }
+
+  let removeCounts = document.querySelectorAll('p')
+  for (let count of removeCounts)
+    count.remove()
+}
 
 //creo una funzione che mi crea div e ul necessari ogni volta che trova i valori immessi dall'utente
+
 
 function addJobs() {
   let jobTitle = document.getElementById('job').value
   let jobLocation = document.getElementById('location').value
-  
-  let lavoriTrovati = find(jobTitle, jobLocation)
+  lavoriTrovati = find(jobTitle, jobLocation)
+
   let contenitore = document.getElementById('options')
-  
+
   //
 
-  if(jobTitle === "" || jobLocation === "") {
+  if (jobTitle === "" || jobLocation === "") {
     alert("Non hai inserito uno o entrambi i valori, riprova!")
     return
-  } if(lavoriTrovati.count === 0) {
+  } if (lavoriTrovati.count === 0) {
     const nessunRisultato = document.createElement('p')
     nessunRisultato.innerText = "Non abbiamo trovato nessun risultato !"
     contenitore.appendChild(nessunRisultato)
     return
-  }
+  } 
+  if (lavoriTrovati.count.includes(contenitoreCount))
+  return
   contenitore.innerHTML = ''
   
-  
+
+
   for (let lavoro of lavoriTrovati.results) {
-    //console.log(lavoro)
+
     const nuovaLista = document.createElement('li')
     nuovaLista.innerText = lavoro.title + " - " + lavoro.location
     contenitore.appendChild(nuovaLista)
-    
-  }
-  const contenitoreCount = document.createElement('p')
-  contenitoreCount.innerText = lavoriTrovati.count
 
+
+  }
+  let contenitoreCount = document.createElement('p')
+  contenitoreCount.innerHTML = lavoriTrovati.count
   const selezionaDivRisultati = document.getElementById('risultati')
   selezionaDivRisultati.appendChild(contenitoreCount)
-  //
+  
 }
 
 
 
+/*   const counterReset = document.querySelector('input[value="Ricerca"]')
+  counterReset.addEventListener('click', remove)
+
+function remove() {
+  const removeCount = document.getElementsByTagName('p')
+  removeCount.firstElementChild.removeChild(contenitoreCount)
+} */
