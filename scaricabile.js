@@ -138,7 +138,7 @@ function find(title, location) {
 
   return {
     results,
-    count
+    count 
   }
 }
 
@@ -154,11 +154,18 @@ function resetJobs() {
   let removeResults = document.querySelectorAll('li')
   for (let result of removeResults) {
     result.remove()
+    //removeResults.classList.remove("slide-out-top")
+  }
+  
+  
+  let removeCounts = document.querySelectorAll('p')
+  for (let count of removeCounts) {
+    count.remove()
+    //count.classList.remove("slide-out-top")
   }
 
-  let removeCounts = document.querySelectorAll('p')
-  for (let count of removeCounts)
-    count.remove()
+
+
 }
 
 //creo una funzione che mi crea div e ul necessari ogni volta che trova i valori immessi dall'utente
@@ -170,7 +177,7 @@ function addJobs() {
   let jobLocation = document.getElementById('location').value
   lavoriTrovati = find(jobTitle, jobLocation)
 
-  let contenitore = document.getElementById('options')
+  let contenitore = document.getElementById('optionsJob')
 
   //
 
@@ -192,11 +199,16 @@ function addJobs() {
     nuovaLista.innerText = lavoro.title + " - " + lavoro.location
     contenitore.appendChild(nuovaLista)
 
+    //classList added
+    nuovaLista.classList.add("slide-in-elliptic-top-fwd")
   }
   
   let contenitoreCount = document.createElement('p')
-  let contenitoreRisultati = document.getElementById('risultati')
-  contenitoreCount.innerHTML = lavoriTrovati.count
+  let contenitoreRisultati = document.getElementById('risultatiCounter')
+  contenitoreCount.innerHTML = "Per la tua ricerca abbiamo individuato " + lavoriTrovati.count + " risultati !"
   contenitoreRisultati.appendChild(contenitoreCount)
   
+  contenitoreCount.classList.add("slide-in-elliptic-bottom-fwd")
 }
+
+
