@@ -207,11 +207,12 @@ function addJobs() {
   let contenitoreRisultati = document.getElementById('risultatiCounter')
   contenitoreCount.innerHTML = "Per la tua ricerca abbiamo individuato " + lavoriTrovati.count + " risultati !"
   contenitoreRisultati.appendChild(contenitoreCount)
-  
+  //added class list
   contenitoreCount.classList.add("slide-in-elliptic-bottom-fwd")
-  
-  
   
 }
 
-
+window.onload = function headingShake() {
+  const prendiHeading = document.getElementById("body")
+  prendiHeading.classList.add("focus-in-contract-bck")
+}

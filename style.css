@@ -9,6 +9,10 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
+    height: 100%;
+    background: rgb(75,75,196);
+background: linear-gradient(143deg, rgba(75,75,196,1) 0%, rgba(192,62,206,0.5186668417366946) 42%, rgba(0,212,255,0) 100%);
+background-repeat: repeat-y;
     
 }
 
@@ -19,10 +23,12 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
-    border: 3px dotted black;
+    /* border: 3px dotted black; */
     border-radius: 50px;
     padding: 2em;
     margin-bottom: 0;
+    max-width: 60%;
+    
 }
 
 #optionsJob {
@@ -34,18 +40,45 @@ li {
     text-align: center;
     display: flex;
     justify-content: center;
+    padding-bottom: .2em;
+    padding-top: .2em;
+    border-bottom: dotted 3px black;
 }
 
 input[type="button"] {
+    font-family: "Expletus Sans", sans-serif;
     margin: 1em;
     padding: .5em;
     border-radius: 50px;
+    background-color: white;
 }
 
 input[type="button"]:hover {
-    background-color: brown;
+    background-color: #45a2fc;
     color: white;
+}
 
+label {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+input[type="text"] {
+    background: transparent;
+    font-family: "Expletus Sans", sans-serif;
+}
+
+input[type="text"]:hover {
+    background-color: #45a2fc;
+}
+input[type="text"]:focus {
+    background-color: white;
+    
+}
+
+::selection {
+    color: white;
+    background-color: black;
 }
 
 /* ENTER CLASS */
@@ -147,10 +180,49 @@ input[type="button"]:hover {
       background: #b22cff;
     }
   }
+
+  .focus-in-contract-bck {
+	-webkit-animation: focus-in-contract-bck 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: focus-in-contract-bck 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
   
+@-webkit-keyframes focus-in-contract-bck {
+    0% {
+      letter-spacing: 1em;
+      -webkit-transform: translateZ(300px);
+              transform: translateZ(300px);
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateZ(12px);
+              transform: translateZ(12px);
+      -webkit-filter: blur(0);
+              filter: blur(0);
+      opacity: 1;
+    }
+  }
+  @keyframes focus-in-contract-bck {
+    0% {
+      letter-spacing: 1em;
+      -webkit-transform: translateZ(300px);
+              transform: translateZ(300px);
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateZ(12px);
+              transform: translateZ(12px);
+      -webkit-filter: blur(0);
+              filter: blur(0);
+      opacity: 1;
+    }
+  }
   
 
-  /* EXIT CLASS */
+  /* EXIT CLASS NON FUNZIONA VEDI RIGHE 157 E 164 SULLA FUNZIONE resetJobs*/
 
   .slide-out-blurred-top {
 	-webkit-animation: slide-out-blurred-top 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
