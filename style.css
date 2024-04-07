@@ -10,9 +10,6 @@ body {
     justify-content: center;
     width: 100%;
     height: 100%;
-    background: rgb(75,75,196);
-background: linear-gradient(143deg, rgba(75,75,196,1) 0%, rgba(192,62,206,0.5186668417366946) 42%, rgba(0,212,255,0) 100%);
-background-repeat: repeat-y;
     
 }
 
@@ -28,6 +25,10 @@ main {
     padding: 2em;
     margin-bottom: 0;
     max-width: 60%;
+    background: rgb(75,75,196);
+background: linear-gradient(143deg, rgba(75,75,196,1) 0%, rgba(192,62,206,0.5186668417366946) 42%, rgba(0,212,255,0) 100%);
+background-repeat: repeat-y;
+    
     
 }
 
